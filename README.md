@@ -1,6 +1,6 @@
 ## jeux.sismondi
 
-[***ACCEDER AU SITE***](http://.jeuxsismondi.github.io)
+[***ACCEDER AU SITE***](https://jeuxsismondi.github.io)
  
 ## Description du travail
 
