@@ -1,6 +1,6 @@
 ## jeux.sismondi
 
-[***ACCEDER AU SITE***](http://thegratoctopus.jeux.sismondi.io)
+[***ACCEDER AU SITE***](http://.jeuxsismondi.github.io)
  
 ## Description du travail
 
