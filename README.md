@@ -8,7 +8,9 @@ Un site avec divers petits jeux
 
 ## Caractéristiques
 
-- [ ] Jeux à programmer : morpion, pendu, loterie
+- [ ] Loterie
+- [ ] Morpion
+- [ ] Pendu
 - [ ] CSS
 - [ ] Utilisation de Vue.js
 
@@ -16,6 +18,6 @@ Un site avec divers petits jeux
 
 Personne | Tâche |  
 ------- | ----------- | 
-Jan | bouffe 22 videos pour faire le f morpion + boutons 
+Jan | Morpion, CSS des boutons
 Henno | CSS
-Estel | Loterie
+Estel | Loterie, Vue.js
