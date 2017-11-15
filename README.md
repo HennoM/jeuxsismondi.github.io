@@ -8,9 +8,9 @@ Un site avec divers petits jeux
 
 ## Caractéristiques
 
-- [ ] Loterie (15.11.17)
+- [ ] Loterie (22.11.17)
 - [ ] Morpion 
-- [ ] Devine le nombre (29.11.17)
+- [ ] Devine le nombre (06.12.17)
 - [ ] CSS (tout au long)
 - [ ] Utilisation de Vue.js (tout au long)
 
