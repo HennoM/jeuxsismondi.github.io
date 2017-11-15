@@ -3,19 +3,20 @@ alert(nombreMystere);
 var msgVue = new Vue({
   el: '#textArea',
   data: {
-    message: 'Hello Vue.js!'
+    message: 'Entrez un nombre entre 0 et 100 compris'
   }
 })
+
 function guess() {
     var guessedNumber = document.getElementById("userInput").value;
     alert(guessedNumber);
     
     if (guessedNumber == nombreMystere) {
-        msgVue.message = 'WP';
+        msgVue.message = "Bien joué !";
     } else if (guessedNumber > nombreMystere) {
-        msgVue.message = 'Your number is superior';
+        msgVue.message = "C'est moins !";
     } else {
-        msgVue.message = 'Your number is inferior';
+        msgVue.message = "C'est plus !";
     }
 }
 
@@ -23,4 +24,3 @@ function restart (nombreMystere) {
     var nombreMystere = Math.floor((Math.random() * 100) + 1);
     alert(nombreMystere);
 }
-
