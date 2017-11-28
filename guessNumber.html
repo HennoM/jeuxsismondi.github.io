@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>GuessNumber</title>
+</head>
+<body>
+    <h1>Guess the number !</h1>
+    <br>
+    <p>Essayez de deviner le nombre secret composé de 3 chiffres différents, donc compris entre 012 et 987.
+        <br>Vous avez un nombre limité d'essais. Regroupez les informations pour trouver la solution.
+        <br><br>miss: aucun chiffre n'est présent dans le nombre secret.
+        <br>hitish: un chiffre est présent dans le nombre secret mais n'est pas à la bonne position.
+        <br>hit: un chiffre est présent et bien positionné.</p>
+    <br>
+    <br>
+    <input id="userInput" autofocus type="number" step="1" value="012" min="012" max="987">
+    <input type="button" onclick="send()" value="Send number">
+    <input type="button" onclick="reset()" value="Restart">
+    <p>Lives : <span id="livesCount"></span></p>
+    <h3>Historique</h3>
+    <p id="histo"></p>
+</body>
+<script src="guessNumber.js"></script>
+</html>
