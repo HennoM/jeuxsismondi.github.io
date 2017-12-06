@@ -1,0 +1,28 @@
+body {
+  background-color: #0B0B61
+}
+
+h1 {
+  font-size: 250%;
+  font-style: italic;
+  color: white;
+}
+
+title {
+  font-style: italic;
+  font-size: 40px;
+}
+
+button {
+  padding: 30px 40px;
+  text-align: center;
+  font: 20px tahoma;
+  background-color: #2E9AFE;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #58ACFA
+}
