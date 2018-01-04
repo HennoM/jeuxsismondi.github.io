@@ -53,5 +53,3 @@ function restart () {
     livesVue.message = "Lives: " + lives.toString();
     userInputObj.value = 0;
 }
-
-//changer bouton "Entrer" pour la touche enter
