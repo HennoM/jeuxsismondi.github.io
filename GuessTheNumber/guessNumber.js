@@ -1,7 +1,3 @@
-/**
- * Created by Maxime on 14/11/2017.
- */
-
 
 
 var secret = generate3DigitsNumber();
