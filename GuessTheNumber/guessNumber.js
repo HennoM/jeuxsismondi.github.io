@@ -1,5 +1,5 @@
 
-
+var validInputs = iniValidInputs();
 var secret = generate3DigitsNumber();
 var defaultLives = 10;
 var lives = defaultLives;
@@ -17,6 +17,20 @@ var histoVue = new Vue({
 })
 livesVue.message = "Lives: " + defaultLives.toString();
 
+function iniValidInputs(){
+    var list = [];
+    for (var i = 0; i < 1000; i++){
+
+        var digits = (""+i).split(""); // convert number to array (strings) for process
+
+        if (i < 10 || (i < 100 && digits[0] != digits[1]) || (digits[0] != digits[1] & digits[0] != digits[2] && digits[1] != digits[2])){
+
+            list.push(i);
+        }
+
+    }
+    return list;
+}
 
 function generate3DigitsNumber() { // digits must be different from one another
     number = '';
@@ -65,7 +79,7 @@ function getInfos(userInput, secret) { // Get response tokens
 
 function send() {
     var userInput = document.getElementById("userInput").value;
-    if (parseInt(userInput) <= 987 & parseInt(userInput) >= 12){
+    if (validInputs.indexOf(parseInt(userInput)) != -1){
         var results = getInfos(userInput, secret);
         histoVue.message += userInput + ": " + results[1] + "<br><br>";
         if (results[0][2] == 3) {
