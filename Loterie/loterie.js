@@ -1,26 +1,57 @@
 var nombreMystere = Math.floor((Math.random() * 100) + 1);
+var defaultLives = 7;
+var lives = defaultLives;
+var userInputObj = document.getElementById("userInput");
+var answerVue = new Vue({
+    el: '#answer',
+    data: {
+        message: ''
+    }
+})
+var livesVue = new Vue({
+    el: '#lives',
+    data: {
+        message: 'DS'
+    }
+})
+livesVue.message = "Lives: " + defaultLives.toString();
+
+document.addEventListener('keypress', (event) => {
+    const keyName = event.key;
+
+    if (keyName == "Enter") {
+        guess();
+    }
+});
+
 
 function guess() {
-    var guessedNumber = document.getElementById("userInput").value;
-
-    if (guessedNumber == nombreMystere) {
-      document.getElementById("textArea").innerHTML = "Bien joué !";
+    var guessedNumber = parseInt(document.getElementById("userInput").value);
+    if (guessedNumber < 0 || guessedNumber > 100) {
+        answerVue.message = "Veuillez entrer un nombre compris entre 0 et 100";
+    } else if (guessedNumber == nombreMystere) {
+        answerVue.message = "Bien joué !";
+        restart();
     } else if (guessedNumber > nombreMystere) {
-        document.getElementById("textArea").innerHTML = "C'est moins !";
+        answerVue.message = "C'est moins !";
+        lives -= 1;
+        livesVue.message = "Lives: " + lives.toString();
     } else if (guessedNumber < nombreMystere) {
-        document.getElementById("textArea").innerHTML = "C'est plus !";
-    } else if (guessedNumber > 100) { //ne fonctionne pas
-      document.getElementById("textArea").innerHTML = "Veuillez entrer un nombre inférieur ou égal à 100";
-    } else if (guessedNumber < 0) { //ne fonctionne pas
-      document.getElementById("textArea").innerHTML = "Veuillez entrer un nombre supérieur ou égal à 0";
+        answerVue.message = "C'est plus !";
+        lives -= 1;
+        livesVue.message = "Lives: " + lives.toString();
+    }
+    if (lives < 1) {
+        answerVue.message = "Vous avez perdu, le nombre mystère était " + nombreMystere.toString();
+        restart();
     }
 }
 
 function restart () {
     nombreMystere = Math.floor((Math.random() * 100) + 1);
-    guess();
+    lives = defaultLives;
+    livesVue.message = "Lives: " + lives.toString();
+    userInputObj.value = 0;
 }
 
-//Ajouter nb d'essais (1) et nombres déjà entrés (2) + changer bouton "Entrer" pour la touche enter (3)
-//Arrêter le jeu qd nombre mystère trouvé + gérer entrées utilisateur (interdire lettres)
-//Remettre à zéro input qd "recommencer"
+//changer bouton "Entrer" pour la touche enter
