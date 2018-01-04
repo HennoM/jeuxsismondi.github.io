@@ -8,11 +8,11 @@ Un site avec divers petits jeux
 
 ## Caractéristiques
 
-- [ ] Loterie (22.11.17)
+- [x] Loterie (22.11.17)
 - [ ] Morpion 
-- [ ] Devine le nombre (06.12.17)
+- [x] Devine le nombre (06.12.17)
 - [ ] CSS (tout au long)
-- [ ] Utilisation de Vue.js (tout au long)
+- [x] Utilisation de Vue.js (tout au long)
 
 ## Membres du groupe : Jan, Henno, Estel
 
