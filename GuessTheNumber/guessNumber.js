@@ -1,19 +1,35 @@
+/**
+ * Created by Maxime on 14/11/2017.
+ */
+
+
+
 var secret = generate3DigitsNumber();
 var defaultLives = 10;
 var lives = defaultLives;
-var histoElement = document.getElementById("histo");
-var livesElement = document.getElementById("livesCount");
+var livesVue = new Vue({
+    el: '#lives',
+    data: {
+        message: 'Hello Vue!'
+    }
+})
+var histoVue = new Vue({
+    el: '#histoVue',
+    data: {
+        message: ''
+    }
+})
+livesVue.message = "Lives: " + defaultLives.toString();
 
-livesElement.innerHTML = defaultLives.toString();
 
 function generate3DigitsNumber() { // digits must be different from one another
     number = '';
-    alreadyPicked = []; //stocker les nb deja sortis
+    alreadyPicked = [];
     while (number.length < 3) {
         rand = getRandomInt(0, 9);
-        if (alreadyPicked.indexOf(rand) == -1) { // si nb pas present dans alreadyPicked
-            number += rand.toString(); //concatenation
-            alreadyPicked.push(rand); //ajouter chiffre a la liste
+        if (alreadyPicked.indexOf(rand) == -1) {
+            number += rand.toString();
+            alreadyPicked.push(rand);
         }
     }
     return parseInt(number);
@@ -22,21 +38,21 @@ function generate3DigitsNumber() { // digits must be different from one another
 function getInfos(userInput, secret) { // Get response tokens
     userInput = (""+userInput).split(""); // convert number to array (strings) for process
     secret = (""+secret).split("");
-    var nul = 0; // nul -> not in secret
-    var ok = 0; // ok -> in secret but not in right position
+    var miss = 0; // miss -> not in secret
+    var hitish = 0; // hitish -> in secret but not in right position
     var hit = 0;    // hit -> in secret and right position
     for (var i = 0; i < 3; i++) {
-        var positionInSecret = secret.indexOf(userInput[i]); // stocker la position du chiffre donné par l'utilisateur dans le secret
+        var positionInSecret = secret.indexOf(userInput[i]);
         if (positionInSecret == -1) {  // if not in secret
-            nul++;
+            miss++;
         } else if (positionInSecret == i) { // if right position
             hit++;
         } else {   // if present but not right position
-            ok++;
+            hitish++;
         }
     }
     var outputText = "";
-    if (nul == 3) {
+    if (miss == 3) {
         outputText = "None is right";
     } else if (hit == 3) {
         outputText = "You win";
@@ -44,43 +60,46 @@ function getInfos(userInput, secret) { // Get response tokens
         for (var i = 0; i < hit; i++) {
             outputText += "hit ";
         }
-        for (var i = 0; i < ok; i++) {
-            outputText += "ok ";
+        for (var i = 0; i < hitish; i++) {
+            outputText += "hitish ";
         }
     }
-    return [[nul, ok, hit], outputText]
+    return [[miss, hitish, hit], outputText]
 }
 
 function send() {
-    var userInput = document.getElementById("userInput").value; //recuperer contenu
-    var results = getInfos(userInput, secret);
-    histoElement.innerHTML += userInput + ": " + results[1] + "<br><br>";
-    if (results[0][2] == 3) {
-        alert("Et c'est gagné !");
-        reset();
-    } else {
-        updateLives(-1);
-        if (lives < 1) {
-            alert("Vous avez perdu...");
+    var userInput = document.getElementById("userInput").value;
+    if (parseInt(userInput) <= 987 & parseInt(userInput) >= 12){
+        var results = getInfos(userInput, secret);
+        histoVue.message += userInput + ": " + results[1] + "<br><br>";
+        if (results[0][2] == 3) {
+            alert("You win !");
             reset();
+        } else {
+            updateLives(-1);
+            if (lives < 1) {
+                alert("You loose");
+                reset();
+            }
         }
     }
 }
 
 function reset() {
     var histo = "Historique: \n";
-    histoElement.innerHTML = "";
+    histoVue.message = "";
     secret = generate3DigitsNumber();
     lives = defaultLives;
-    livesElement.innerHTML = defaultLives.toString();
+    livesVue.message = "Lives: " + defaultLives.toString();
     return [histo, secret];
 }
 
 function updateLives(value) {
     lives += value;
-    livesElement.innerHTML = lives.toString();
+    livesVue.message = "Lives: " + lives.toString();
 }
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
