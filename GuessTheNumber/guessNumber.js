@@ -7,6 +7,14 @@ var livesVue = new Vue({
     el: '#lives',
     data: {
         message: 'Hello Vue!'
+    },
+    methods: {
+        turnRed: function() {
+            document.getElementById("lives").className += " red";
+        }
+        turnGeneric: function() {
+            document.getElementById("lives").className = "";
+        }
     }
 })
 var histoVue = new Vue({
@@ -14,6 +22,8 @@ var histoVue = new Vue({
     data: {
         message: ''
     }
+    
+    
 })
 livesVue.message = "Lives: " + defaultLives.toString();
 
@@ -101,12 +111,16 @@ function reset() {
     secret = generate3DigitsNumber();
     lives = defaultLives;
     livesVue.message = "Lives: " + defaultLives.toString();
+    livesVue.turnGeneric();
     return [histo, secret];
 }
 
 function updateLives(value) {
     lives += value;
     livesVue.message = "Lives: " + lives.toString();
+    if (lives < 4) {
+        livesVue.turnRed();
+    }    
 }
 
 function getRandomInt(min, max) {
