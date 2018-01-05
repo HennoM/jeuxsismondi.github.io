@@ -35,7 +35,7 @@ function iniValidInputs(){
 
         if (i < 10 || (i < 100 && digits[0] != digits[1]) || (digits[0] != digits[1] & digits[0] != digits[2] && digits[1] != digits[2])){
 
-            list.push(i);
+            list.push(i); //tester les si le nombre est valide
         }
 
     }
@@ -89,7 +89,7 @@ function getInfos(userInput, secret) { // Get response tokens
 
 function send() {
     var userInput = document.getElementById("userInput").value;
-    if (validInputs.indexOf(parseInt(userInput)) != -1){
+    if (validInputs.indexOf(parseInt(userInput)) != -1){ //nb valide ds liste
         var results = getInfos(userInput, secret);
         histoVue.message += userInput + ": " + results[1] + "<br><br>";
         if (results[0][2] == 3) {
@@ -98,7 +98,7 @@ function send() {
         } else {
             updateLives(-1);
             if (lives < 1) {
-                alert("You loose");
+                alert("You lose");
                 reset();
             }
         }
@@ -112,14 +112,13 @@ function reset() {
     lives = defaultLives;
     livesVue.message = "Lives: " + defaultLives.toString();
     livesVue.turnGeneric();
-    return [histo, secret];
 }
 
-function updateLives(value) {
+function updateLives(value) { //
     lives += value;
     livesVue.message = "Lives: " + lives.toString();
     if (lives < 4) {
-        livesVue.turnRed();
+        livesVue.turnRed(); //methode Vue
     }    
 }
 
