@@ -1,7 +1,7 @@
 var nombreMystere = Math.floor((Math.random() * 100) + 1);
-var defaultLives = 7;
+const defaultLives = 7;
 var lives = defaultLives;
-var userInputObj = document.getElementById("userInput");
+var userInputObj = document.getElementById("userInput"); //récupère él. HTML
 var answerVue = new Vue({
     el: '#answer',
     data: {
@@ -11,10 +11,10 @@ var answerVue = new Vue({
 var livesVue = new Vue({
     el: '#lives',
     data: {
-        message: 'DS'
+        message: ''
     }
 })
-livesVue.message = "Lives: " + defaultLives.toString();
+livesVue.message = "Lives: " + defaultLives.toString(); //opération pas acceptées ?
 
 document.addEventListener('keypress', (event) => {
     const keyName = event.key;
@@ -26,7 +26,7 @@ document.addEventListener('keypress', (event) => {
 
 
 function guess() {
-    var guessedNumber = parseInt(document.getElementById("userInput").value);
+    var guessedNumber = parseInt(userInputObj.value); 
     if (guessedNumber < 0 || guessedNumber > 100) {
         answerVue.message = "Veuillez entrer un nombre compris entre 0 et 100";
     } else if (guessedNumber == nombreMystere) {
