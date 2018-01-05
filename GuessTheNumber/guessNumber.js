@@ -11,7 +11,7 @@ var livesVue = new Vue({
     methods: {
         turnRed: function() {
             document.getElementById("lives").className += " red";
-        }
+        },
         turnGeneric: function() {
             document.getElementById("lives").className = "";
         }
