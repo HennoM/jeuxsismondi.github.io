@@ -22,7 +22,7 @@ document.addEventListener('keypress', (event) => {
     if (keyName == "Enter") {
         guess();
     }
-}
+});
 
 
 function guess() {
