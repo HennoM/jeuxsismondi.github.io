@@ -1,4 +1,3 @@
-
 var validInputs = iniValidInputs();
 var secret = generate3DigitsNumber();
 var defaultLives = 10;
@@ -6,7 +5,7 @@ var lives = defaultLives;
 var livesVue = new Vue({
     el: '#lives',
     data: {
-        message: 'Hello Vue!'
+        message: ''
     },
     methods: {
         turnRed: function() {
@@ -42,7 +41,7 @@ function iniValidInputs(){
     return list;
 }
 
-function generate3DigitsNumber() { // digits must be different from one another
+function generate3DigitsNumber() { //les nb doivent être différents les uns des autres
     number = '';
     alreadyPicked = [];
     while (number.length < 3) {
@@ -58,47 +57,47 @@ function generate3DigitsNumber() { // digits must be different from one another
 function getInfos(userInput, secret) { // Get response tokens
     userInput = (""+userInput).split(""); // convert number to array (strings) for process
     secret = (""+secret).split("");
-    var miss = 0; // miss -> not in secret
-    var hitish = 0; // hitish -> in secret but not in right position
-    var hit = 0;    // hit -> in secret and right position
+    var rate = 0; // raté -> pas ds nb secret
+    var ok = 0; // ok -> ds secret mais pas à la bonne position
+    var hit = 0;    // hit -> ds nb secret et à la bonne position
     for (var i = 0; i < 3; i++) {
         var positionInSecret = secret.indexOf(userInput[i]);
-        if (positionInSecret == -1) {  // if not in secret
-            miss++;
-        } else if (positionInSecret == i) { // if right position
+        if (positionInSecret == -1) {  // si pas ds nb secret
+            rate++;
+        } else if (positionInSecret == i) { // si la position est bonne
             hit++;
-        } else {   // if present but not right position
-            hitish++;
+        } else {   // si présent mais pas à la bonne place
+            ok++;
         }
     }
     var outputText = "";
-    if (miss == 3) {
-        outputText = "None is right";
+    if (rate == 3) {
+        outputText = "Aucun nombre n'est correct";
     } else if (hit == 3) {
-        outputText = "You win";
+        outputText = "Bravo, vous avez gagné !";
     } else {
         for (var i = 0; i < hit; i++) {
             outputText += "hit ";
         }
-        for (var i = 0; i < hitish; i++) {
-            outputText += "hitish ";
+        for (var i = 0; i < ok; i++) {
+            outputText += "ok ";
         }
     }
-    return [[miss, hitish, hit], outputText]
+    return [[rate, ok, hit], outputText]
 }
 
 function send() {
     var userInput = document.getElementById("userInput").value;
-    if (validInputs.indexOf(parseInt(userInput)) != -1){ //nb valide ds liste
+    if (validInputs.indexOf(parseInt(userInput)) != -1){   //nb valide ds liste
         var results = getInfos(userInput, secret);
         histoVue.message += userInput + ": " + results[1] + "<br><br>";
         if (results[0][2] == 3) {
-            alert("You win !");
+            alert("Bravo, vous avez gagné !");
             reset();
         } else {
             updateLives(-1);
             if (lives < 1) {
-                alert("You lose");
+                alert("Vous avez perdu...");
                 reset();
             }
         }
@@ -110,13 +109,13 @@ function reset() {
     histoVue.message = "";
     secret = generate3DigitsNumber();
     lives = defaultLives;
-    livesVue.message = "Lives: " + defaultLives.toString();
+    livesVue.message = "Vies: " + defaultLives.toString();
     livesVue.turnGeneric();
 }
 
 function updateLives(value) { //
     lives += value;
-    livesVue.message = "Lives: " + lives.toString();
+    livesVue.message = "Vies: " + lives.toString();
     if (lives < 4) {
         livesVue.turnRed(); //methode Vue
     }    
