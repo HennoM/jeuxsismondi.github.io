@@ -20,17 +20,7 @@ var histoVue = new Vue({
     el: '#histoVue',
     data: {
         message: ''
-    }
-    
-    document.addEventListener('keypress', (event) => {
-    const keyName = event.key;
-
-    if (keyName == "Enter") {
-        getInfos();
-    }
-}
-    
-    
+    }    
 })
 livesVue.message = "Vies: " + defaultLives.toString();
 
