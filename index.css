@@ -1,20 +1,23 @@
 body {
-  background-color: #0B0B61
+  background-color: #58ACFA
 }
 
 h1 {
   font-size: 250%;
   font-style: italic;
   color: white;
+  text-align: center;
 }
 
 title {
   font-style: italic;
   font-size: 40px;
+  text-align: center;
 }
 
 p {
   color: white;
+  text-align: center;
 }
 
 button {
