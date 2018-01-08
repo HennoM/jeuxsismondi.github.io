@@ -24,6 +24,14 @@ var histoVue = new Vue({
 })
 livesVue.message = "Vies: " + defaultLives.toString();
 
+document.addEventListener('keypress', (event) => {
+    const keyName = event.key;
+
+    if (keyName == "Enter") {
+        guess();
+    }
+});
+
 function iniValidInputs(){
     var list = [];
     for (var i = 0; i < 1000; i++){
