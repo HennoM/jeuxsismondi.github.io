@@ -2,21 +2,13 @@
 <html>
 
 <head>
-
   <link rel="stylesheet" type="text/css" href="../index.css">
-
-
-
-
   <meta charset="utf-8">
   <title>Loterie</title>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 </head>
 
-
 <body>
-
   <center><h1>Loterie</h1></center>
   <p> But du jeu : il s'agit de deviner le nombre mystère compris entre 0 et 100 </p>
   <input autofocus type="number" id="userInput" value=0 />
@@ -24,16 +16,19 @@
   <input id='restartButton' type="button" onclick="restart(nombreMystere)" value='Recommencer' >
   <br>
   <br>
+  
   <div id="lives">
     {{ message }}
   </div>
+  
   <br>
+  
   <div id="answer">
     {{ message }}
   </div>
 
-
 </body>
 
 <script src="loterie.js"></script>
+  
 </html>
