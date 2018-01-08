@@ -22,9 +22,17 @@ var histoVue = new Vue({
         message: ''
     }
     
+    document.addEventListener('keypress', (event) => {
+    const keyName = event.key;
+
+    if (keyName == "Enter") {
+        getInfos();
+    }
+}
+    
     
 })
-livesVue.message = "Lives: " + defaultLives.toString();
+livesVue.message = "Vies: " + defaultLives.toString();
 
 function iniValidInputs(){
     var list = [];
