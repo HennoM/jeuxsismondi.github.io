@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-
     <title>GuessNumber</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" type="text/css" href="guessNumber.css">
+    <link rel="stylesheet" type="text/css" href="../index.css">
 </head>
+
 <body>
     <h1>Guess the number !</h1>
     <br>
@@ -18,8 +19,8 @@
     <br>
     <br>
     <input id="userInput" autofocus type="number" step="1" value="012" min="012" max="987">
-    <input type="button" onclick="send()" value="Send number">
-    <input type="button" onclick="reset()" value="Restart">
+    <input type="button" onclick="send()" value="Envoyer">
+    <input type="button" onclick="reset()" value="Recommencer">
     <br>
     <br>
     <div id="lives">
@@ -30,5 +31,7 @@
         <span v-html="message" ></span>
     </p>
 </body>
+
 <script src="guessNumber.js"></script>
+
 </html>
