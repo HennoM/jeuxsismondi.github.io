@@ -22,7 +22,7 @@ document.addEventListener('keypress', (event) => {
     if (keyName == "Enter") {
         guess();
     }
-});
+}
 
 
 function guess() {
@@ -39,7 +39,7 @@ function guess() {
     } else if (guessedNumber < nombreMystere) {
         answerVue.message = "C'est plus !";
         lives -= 1;
-        livesVue.message = "Lives: " + lives.toString();
+        livesVue.message = "Vies: " + lives.toString();
     }
     if (lives < 1) {
         answerVue.message = "Vous avez perdu, le nombre mystère était " + nombreMystere.toString();
@@ -50,6 +50,6 @@ function guess() {
 function restart () {
     nombreMystere = Math.floor((Math.random() * 100) + 1);
     lives = defaultLives;
-    livesVue.message = "Lives: " + lives.toString();
+    livesVue.message = "Vies: " + lives.toString();
     userInputObj.value = 0;
 }
