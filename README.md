@@ -20,4 +20,4 @@ Personne | Tâche |
 ------- | ----------- | 
 Jan | Morpion, CSS des boutons
 Henno | CSS
-Estel | Loterie, Devine le nombre, Vue.js
+Estel | Loterie, Devine le nombre
