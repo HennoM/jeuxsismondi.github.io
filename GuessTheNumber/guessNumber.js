@@ -111,7 +111,6 @@ function send() {
 }
 
 function reset() {
-    var histo = "Historique: \n";
     histoVue.message = "";
     secret = generate3DigitsNumber();
     lives = defaultLives;
