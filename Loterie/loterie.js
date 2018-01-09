@@ -36,7 +36,7 @@ function guess() {
         answerVue.message = "C'est moins !";
         lives -= 1;
         livesVue.message = "Lives: " + lives.toString();
-    } else (guessedNumber < nombreMystere) {
+    } else {
         answerVue.message = "C'est plus !";
         lives -= 1;
         livesVue.message = "Vies: " + lives.toString();
