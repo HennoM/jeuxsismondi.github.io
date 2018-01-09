@@ -1,6 +1,6 @@
 var validInputs = iniValidInputs();
 var secret = generate3DigitsNumber();
-var defaultLives = 10;
+const defaultLives = 10;
 var lives = defaultLives;
 var livesVue = new Vue({
     el: '#lives',
