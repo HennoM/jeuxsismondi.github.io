@@ -11,7 +11,7 @@
 <body>
   <center><h1>Loterie</h1></center>
   <p> But du jeu : il s'agit de deviner le nombre mystère compris entre 0 et 100 </p>
-  <input autofocus type="number" id="userInput" value=0 />
+  <input autofocus type="number" id="userInput" value=0 min="0" max="100" />
   <input id='subButton' type='button' onclick='guess()' value='Envoyer'>
   <input id='restartButton' type="button" onclick="restart(nombreMystere)" value='Recommencer' >
   <br>
