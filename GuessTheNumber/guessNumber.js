@@ -34,11 +34,11 @@ document.addEventListener('keypress', (event) => {
 
 function iniValidInputs(){
     var list = [];
-    for (var i = 0; i < 1000; i++){
+    for (var i = 12; i < 1000; i++){
 
         var digits = (""+i).split(""); // convert number to array (strings) for process
 
-        if (i < 10 || (i < 100 && digits[0] != digits[1]) || (digits[0] != digits[1] & digits[0] != digits[2] && digits[1] != digits[2])){
+        if ( (i < 100 && digits[0] != digits[1]) || (digits[0] != digits[1] & digits[0] != digits[2] && digits[1] != digits[2])){
 
             list.push(i); //tester les si le nombre est valide
         }
