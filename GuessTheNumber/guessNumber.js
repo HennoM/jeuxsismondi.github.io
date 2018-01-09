@@ -36,7 +36,7 @@ function iniValidInputs(){
     var list = [];
     for (var i = 12; i < 1000; i++){
 
-        var digits = (""+i).split(""); // convert number to array (strings) for process
+        var digits = (""+i).split("");
 
         if ( (i < 100 && digits[0] != digits[1]) || (digits[0] != digits[1] & digits[0] != digits[2] && digits[1] != digits[2])){
 
@@ -60,8 +60,8 @@ function generate3DigitsNumber() { //les nb doivent être différents les uns de
     return parseInt(number);
 }
 
-function getInfos(userInput, secret) { // Get response tokens
-    userInput = (""+userInput).split(""); // convert number to array (strings) for process
+function getInfos(userInput, secret) { 
+    userInput = (""+userInput).split(""); 
     secret = (""+secret).split("");
     var rate = 0; // raté -> pas ds nb secret
     var ok = 0; // ok -> ds secret mais pas à la bonne position
@@ -101,7 +101,7 @@ function send() {
             alert("Bravo, vous avez gagné !");
             reset();
         } else {
-            updateLives(-1);
+            decrementLives();
             if (lives < 1) {
                 alert("Vous avez perdu...");
                 reset();
@@ -118,8 +118,8 @@ function reset() {
     livesVue.turnGeneric();
 }
 
-function updateLives(value) { //
-    lives += value;
+function decrementLives() {
+    lives -= 1;
     livesVue.message = "Vies: " + lives.toString();
     if (lives < 4) {
         livesVue.turnRed(); //methode Vue
