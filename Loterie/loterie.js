@@ -14,7 +14,7 @@ var livesVue = new Vue({
         message: ''
     }
 })
-livesVue.message = "Lives: " + defaultLives.toString(); //opération pas acceptées ?
+livesVue.message = "Lives: " + defaultLives.toString();
 
 document.addEventListener('keypress', (event) => {
     const keyName = event.key;
