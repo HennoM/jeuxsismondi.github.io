@@ -4,7 +4,7 @@
  
 ## Description du travail
 
-Un site avec divers petits jeux
+Un site internet avec divers petits jeux.
 
 ## Caractéristiques
 
