@@ -8,7 +8,7 @@ var livesVue = new Vue({
         message: ''
     },
     methods: {
-        turnRed: function() {
+        turnYellow: function() {
             document.getElementById("lives").className += " red";
         },
         turnGeneric: function() {
@@ -122,7 +122,7 @@ function decrementLives() {
     lives -= 1;
     livesVue.message = "Vies: " + lives.toString();
     if (lives < 4) {
-        livesVue.turnRed(); //methode Vue
+        livesVue.turnYellow(); //methode Vue
     }    
 }
 
