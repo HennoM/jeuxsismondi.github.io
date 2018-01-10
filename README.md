@@ -1,4 +1,4 @@
-## jeux.sismondi
+## Sismondi jeux
 
 [***ACCEDER AU SITE***](https://jeuxsismondi.github.io)
  
